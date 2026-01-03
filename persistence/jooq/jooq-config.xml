@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.19.11.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.jooq.org/xsd/jooq-codegen-3.19.11.xsd
+                                   http://www.jooq.org/xsd/jooq-codegen-3.19.11.xsd">
+
+  <jdbc>
+    <driver>org.postgresql.Driver</driver>
+    <url>jdbc:postgresql://localhost:5432/tmmp</url>
+    <user>postgres</user>
+    <password>password</password>
+  </jdbc>
+
+  <generator>
+    <name>org.jooq.codegen.DefaultGenerator</name>
+
+    <database>
+      <name>org.jooq.meta.postgres.PostgresDatabase</name>
+      <inputSchema>public</inputSchema>
+
+      <implicitJoinPathsManyToMany>true</implicitJoinPathsManyToMany>
+
+      <includes>.*</includes>
+      <excludes/>
+
+      <includeForeignKeys>true</includeForeignKeys>
+      <includeIndexes>true</includeIndexes>
+    </database>
+
+    <target>
+      <packageName>com.pepyachka.persistence.jooq</packageName>
+      <directory>build/generated/jooq</directory>
+    </target>
+
+    <generate>
+      <pojos>true</pojos>
+      <immutablePojos>true</immutablePojos>
+      <records>true</records>
+      <javaTimeTypes>true</javaTimeTypes>
+      <comments>true</comments>
+    </generate>
+
+    <strategy>
+      <name>org.jooq.codegen.DefaultGeneratorStrategy</name>
+    </strategy>
+
+  </generator>
+</configuration>

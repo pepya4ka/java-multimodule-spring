@@ -1,0 +1,70 @@
+[versions]
+spring-boot = "3.5.6"
+spring-dependency-management = "1.1.7"
+mapstruct = "1.6.3"
+lombok = "1.18.42"
+postgresql = "42.7.8"
+liquibase = "4.27.0"
+jooq = "3.19.27"
+slf4j = "2.0.17"
+picocli = "4.7.7"
+liquibase-groovy = "3.0.3"
+# Test dependencies
+testcontainers = "1.21.3"
+junit-jupiter = "5.11.4"
+assertj = "3.26.3"
+junitAssert = '4.1.1'
+
+[libraries]
+# spring
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "spring-boot" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "spring-boot" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator", version.ref = "spring-boot" }
+spring-boot-starter-jooq = { module = "org.springframework.boot:spring-boot-starter-jooq", version.ref = "spring-boot" }
+spring-boot-starter-jdbc = { module = "org.springframework.boot:spring-boot-starter-jdbc", version.ref = "spring-boot" }
+spring-boot-starter-aop = { module = "org.springframework.boot:spring-boot-starter-aop", version.ref = "spring-boot" }
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "spring-boot" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "spring-boot" }
+spring-boot-starter-json = { module = "org.springframework.boot:spring-boot-starter-json" }
+spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers", version.ref = "spring-boot" }
+
+# database
+postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
+liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+picocli = { module = "info.picocli:picocli", version.ref = "picocli" }
+liquibase-groovy-dsl = { module = "org.liquibase:liquibase-groovy-dsl", version.ref = "liquibase-groovy" }
+jooq-core = { module = "org.jooq:jooq", version.ref = "jooq" }
+jooq-codegen = { module = "org.jooq:jooq-codegen", version.ref = "jooq" }
+jooq-meta = { module = "org.jooq:jooq-meta", version.ref = "jooq" }
+
+# utilities
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+
+# test
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+json-unit-assert = { module = "net.javacrumbs.json-unit:json-unit-assertj", version.ref = "junitAssert" }
+
+[bundles]
+spring-web = [
+    "spring-boot-starter-web",
+    "spring-boot-starter-validation"
+]
+testing = [
+    "spring-boot-starter-test",
+    "testcontainers-junit-jupiter",
+    "testcontainers-postgresql",
+    "assertj-core",
+    "json-unit-assert",
+    "spring-boot-testcontainers"
+]
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }

@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':persistence')
+
+    implementation libs.lombok
+    implementation libs.mapstruct
+    implementation libs.bundles.spring.web
+
+    annotationProcessor libs.lombok
+    annotationProcessor libs.mapstruct.processor
+}

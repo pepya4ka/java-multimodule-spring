@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: tmmp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tmmp
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jooq:
+    sql-dialect: postgres
+  liquibase:
+    change-log: classpath:liquibase/tmmp/changelog/tmmp-changelog.xml
+    enabled: true
+
+logging:
+  level:
+    com.tmmp: DEBUG
+    org.springframework: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

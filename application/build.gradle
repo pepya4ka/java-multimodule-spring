@@ -1,0 +1,16 @@
+plugins {
+    id 'org.springframework.boot'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':api')
+    implementation project(':persistence')
+
+    implementation libs.bundles.spring.web
+    implementation libs.spring.boot.starter.actuator
+    implementation libs.spring.boot.starter.aop
+
+    runtimeOnly libs.postgresql
+    implementation libs.liquibase.core
+}

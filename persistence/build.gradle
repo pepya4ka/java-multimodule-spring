@@ -1,0 +1,111 @@
+plugins {
+    id 'java'
+    id 'nu.studer.jooq' version "10.1.1"
+    id 'org.liquibase.gradle' version '2.2.1'
+}
+
+liquibase {
+    activities {
+        main {
+            changelogFile '/db-schema/src/main/resources/liquibase/tmmp/changelog/tmmp-changelog.xml'
+            url 'jdbc:postgresql://localhost:5432/tmmp'
+            username 'postgres'
+            password 'password'
+            driver 'org.postgresql.Driver'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':core')
+    implementation project(':db-schema')
+
+    implementation libs.spring.boot.starter.jooq
+    implementation libs.spring.boot.starter.jdbc
+
+    implementation libs.jooq.core
+    jooqGenerator libs.jooq.meta
+    jooqGenerator libs.jooq.codegen
+
+    runtimeOnly libs.postgresql
+    jooqGenerator libs.postgresql
+
+    implementation libs.lombok
+    implementation libs.mapstruct
+
+    implementation libs.liquibase.core
+
+    annotationProcessor libs.lombok
+    annotationProcessor libs.mapstruct.processor
+
+    liquibaseRuntime libs.liquibase.core
+    liquibaseRuntime libs.postgresql
+    liquibaseRuntime libs.picocli
+    liquibaseRuntime libs.liquibase.groovy.dsl
+
+    // Test dependencies
+    testImplementation libs.bundles.testing
+    testRuntimeOnly libs.postgresql
+}
+
+jooq {
+    version = libs.versions.jooq.get()
+    edition = nu.studer.gradle.jooq.JooqEdition.OSS
+
+    configurations {
+        main {
+            generateSchemaSourceOnCompilation = false
+
+            generationTool {
+                jdbc {
+                    driver = 'org.postgresql.Driver'
+                    url = 'jdbc:postgresql://localhost:5432/tmmp'
+                    user = 'postgres'
+                    password = 'password'
+                }
+
+                generator {
+                    name = 'org.jooq.codegen.JavaGenerator'
+                    strategy {
+                        name = 'org.jooq.codegen.DefaultGeneratorStrategy'
+                    }
+                    database {
+                        name = 'org.jooq.meta.postgres.PostgresDatabase'
+                        inputSchema = 'public'
+                        includes = '.*'
+                        excludes = 'databasechangelog|databasechangeloglock'
+                        properties {
+                            property {
+                                key = 'defaultNameCase'
+                                value = 'as_is'
+                            }
+                        }
+                    }
+                    generate {
+                        deprecated = false
+                        records = true
+                        immutablePojos = true
+                        fluentSetters = true
+                        javaTimeTypes = true
+                    }
+                    target {
+                        packageName = 'com.pepyachka.persistence.jooq'
+                        directory = 'build/generated/jooq'
+                    }
+                }
+            }
+        }
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs += "$buildDir/generated/jooq"
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

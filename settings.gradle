@@ -1,0 +1,6 @@
+rootProject.name = 'test-java-multimodule-project'
+include 'core'
+include 'db-schema'
+include 'persistence'
+include 'application'
+include 'api'

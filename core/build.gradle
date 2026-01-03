@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation libs.spring.boot.starter
+    implementation libs.spring.boot.starter.jdbc
+    implementation libs.spring.boot.starter.jooq
+    implementation libs.spring.boot.starter.validation
+    implementation libs.slf4j.api
+    implementation libs.lombok
+
+    annotationProcessor libs.lombok
+}
