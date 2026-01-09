@@ -10,7 +10,9 @@ slf4j = "2.0.17"
 picocli = "4.7.7"
 liquibase-groovy = "3.0.3"
 # Test dependencies
-testcontainers = "1.21.3"
+test-containers-junit = "1.21.3"
+test-containers-postgresql = "1.21.3"
+test-containers-core = "2.0.2"
 junit-jupiter = "5.11.4"
 assertj = "3.26.3"
 junitAssert = '4.1.1'
@@ -44,8 +46,9 @@ lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 
 # test
-testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
-testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+testcontainers-core = { module = "org.testcontainers:testcontainers", version.ref = "test-containers-core" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter", version.ref = "test-containers-junit" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "test-containers-postgresql" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit-jupiter" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit-jupiter" }
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
@@ -58,6 +61,7 @@ spring-web = [
 ]
 testing = [
     "spring-boot-starter-test",
+    "testcontainers-core",
     "testcontainers-junit-jupiter",
     "testcontainers-postgresql",
     "assertj-core",

@@ -14,6 +14,7 @@ public class PostgresContainerConfiguration {
 	@Value("${postgres.init:#{null}}")
 	String resourceName;
 
+	@SuppressWarnings("resource")
 	@Bean
 	@ServiceConnection
 	PostgreSQLContainer<?> postgresContainer() {
