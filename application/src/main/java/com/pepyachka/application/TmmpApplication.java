@@ -1,4 +1,4 @@
-package pepyachka;
+package com.pepyachka.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

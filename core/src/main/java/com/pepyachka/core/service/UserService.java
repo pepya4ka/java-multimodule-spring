@@ -1,7 +1,7 @@
-package com.pepyachka.service;
+package com.pepyachka.core.service;
 
-import com.pepyachka.data.UserRegistrationData;
-import com.pepyachka.model.User;
+import com.pepyachka.core.data.UserRegistrationData;
+import com.pepyachka.core.model.User;
 import java.util.UUID;
 
 public interface UserService {

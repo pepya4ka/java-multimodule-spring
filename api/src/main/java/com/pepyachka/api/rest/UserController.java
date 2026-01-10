@@ -1,11 +1,11 @@
-package com.pepyachka.rest.controller;
+package com.pepyachka.api.rest;
 
-import com.pepyachka.data.UserRegistrationData;
-import com.pepyachka.dto.UserDto;
-import com.pepyachka.dto.UserRegistrationRequest;
-import com.pepyachka.mapper.UserMapper;
-import com.pepyachka.model.User;
-import com.pepyachka.service.UserService;
+import com.pepyachka.api.dto.UserDto;
+import com.pepyachka.api.dto.UserRegistrationRequest;
+import com.pepyachka.api.mapper.UserMapper;
+import com.pepyachka.core.data.UserRegistrationData;
+import com.pepyachka.core.model.User;
+import com.pepyachka.core.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

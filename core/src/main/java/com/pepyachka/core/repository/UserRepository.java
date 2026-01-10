@@ -1,6 +1,6 @@
-package com.pepyachka.repository;
+package com.pepyachka.core.repository;
 
-import com.pepyachka.model.User;
+import com.pepyachka.core.model.User;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

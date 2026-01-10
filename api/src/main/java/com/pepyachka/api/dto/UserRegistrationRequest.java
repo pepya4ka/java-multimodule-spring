@@ -1,7 +1,7 @@
-package com.pepyachka.model;
+package com.pepyachka.api.dto;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,11 +16,11 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User {
+public class UserRegistrationRequest {
 
-  UUID id;
+  @NotBlank
+  @Email
   String email;
-  String passwordHash;
-  String role;
-  LocalDateTime createdAt;
+  @NotBlank
+  String password;
 }

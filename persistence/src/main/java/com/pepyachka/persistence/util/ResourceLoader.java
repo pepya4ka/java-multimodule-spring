@@ -1,4 +1,4 @@
-package com.pepyachka.util;
+package com.pepyachka.persistence.util;
 
 import java.net.URL;
 import java.nio.charset.StandardCharsets;

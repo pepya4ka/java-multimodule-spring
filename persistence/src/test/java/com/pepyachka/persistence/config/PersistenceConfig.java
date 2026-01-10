@@ -1,4 +1,4 @@
-package com.pepyachka.config;
+package com.pepyachka.persistence.config;
 
 import org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = {
-    "com.pepyachka"
+    "com.pepyachka.persistence"
 })
 @Import(JacksonAutoConfiguration.class)
 public class PersistenceConfig {

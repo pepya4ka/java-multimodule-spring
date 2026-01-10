@@ -1,15 +1,15 @@
-package com.pepyachka;
+package com.pepyachka.persistence;
 
 import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pepyachka.config.PersistenceConfig;
-import com.pepyachka.config.PostgresContainerConfiguration;
-import com.pepyachka.model.User;
-import com.pepyachka.repository.UserRepository;
-import com.pepyachka.util.ResourceLoader;
+import com.pepyachka.core.model.User;
+import com.pepyachka.core.repository.UserRepository;
+import com.pepyachka.persistence.config.PersistenceConfig;
+import com.pepyachka.persistence.config.PostgresContainerConfiguration;
+import com.pepyachka.persistence.util.ResourceLoader;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

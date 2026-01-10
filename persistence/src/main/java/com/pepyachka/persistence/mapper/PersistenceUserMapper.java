@@ -1,6 +1,6 @@
-package com.pepyachka.mapper;
+package com.pepyachka.persistence.mapper;
 
-import com.pepyachka.model.User;
+import com.pepyachka.core.model.User;
 import com.pepyachka.persistence.jooq.tables.records.UsersRecord;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

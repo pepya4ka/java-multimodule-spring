@@ -1,9 +1,9 @@
-package com.pepyachka.service.impl;
+package com.pepyachka.core.service.impl;
 
-import com.pepyachka.data.UserRegistrationData;
-import com.pepyachka.model.User;
-import com.pepyachka.repository.UserRepository;
-import com.pepyachka.service.UserService;
+import com.pepyachka.core.data.UserRegistrationData;
+import com.pepyachka.core.model.User;
+import com.pepyachka.core.repository.UserRepository;
+import com.pepyachka.core.service.UserService;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import lombok.AllArgsConstructor;

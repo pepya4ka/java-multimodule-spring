@@ -1,4 +1,4 @@
-package com.pepyachka.data;
+package com.pepyachka.core.data;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

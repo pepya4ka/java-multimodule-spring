@@ -1,10 +1,10 @@
-package com.pepyachka;
+package com.pepyachka.persistence;
 
-import com.pepyachka.mapper.PersistenceUserMapper;
-import com.pepyachka.model.User;
+import com.pepyachka.core.model.User;
+import com.pepyachka.core.repository.UserRepository;
 import com.pepyachka.persistence.jooq.tables.Users;
 import com.pepyachka.persistence.jooq.tables.records.UsersRecord;
-import com.pepyachka.repository.UserRepository;
+import com.pepyachka.persistence.mapper.PersistenceUserMapper;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;

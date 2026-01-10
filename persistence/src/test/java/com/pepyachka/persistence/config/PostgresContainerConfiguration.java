@@ -1,4 +1,4 @@
-package com.pepyachka.config;
+package com.pepyachka.persistence.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestConfiguration;
