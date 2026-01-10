@@ -32,7 +32,7 @@ import org.springframework.test.context.jdbc.Sql;
 class UserJooqRepositoryTest {
 
   @Autowired
-  ObjectMapper objectMapper;
+  private ObjectMapper objectMapper;
   @Autowired
   private UserRepository repository;
 
