@@ -7,11 +7,9 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan(basePackages = {
-				"com.pepyachka.persistence",
-				"com.pepyachka.mapper",
-				"com.pepyachka"
+    "com.pepyachka"
 })
 @Import(JacksonAutoConfiguration.class)
-public class PersistenceConfig
-{
+public class PersistenceConfig {
+
 }

@@ -1,20 +1,19 @@
 package com.pepyachka.repository;
 
+import com.pepyachka.model.User;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.pepyachka.model.User;
+public interface UserRepository {
 
-public interface UserRepository
-{
-	Optional<User> findById(UUID id);
+  Optional<User> findById(UUID id);
 
-	List<User> findAll();
+  List<User> findAll();
 
-	User save(User user);
+  User save(User user);
 
-	Optional<User> findByEmail(String email);
+  Optional<User> findByEmail(String email);
 
-	boolean existsByEmail(String email);
+  boolean existsByEmail(String email);
 }

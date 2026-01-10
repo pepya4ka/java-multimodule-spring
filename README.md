@@ -1,6 +1,7 @@
 # Multi-Module Java Spring Project
 
-This is a **test / practice project** created to explore and practice building a **multi-module Java application**.
+This is a **test / practice project** created to explore and practice building a **multi-module Java
+application**.
 
 ## Tech Stack
 

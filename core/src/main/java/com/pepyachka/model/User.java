@@ -2,8 +2,12 @@ package com.pepyachka.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.With;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -12,8 +16,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class User
-{
+public class User {
 
   UUID id;
   String email;

@@ -11,26 +11,26 @@ import org.testcontainers.utility.MountableFile;
 @TestConfiguration(proxyBeanMethods = false)
 public class PostgresContainerConfiguration {
 
-	@Value("${postgres.init:#{null}}")
-	String resourceName;
+  @Value("${postgres.init:#{null}}")
+  String resourceName;
 
-	@SuppressWarnings("resource")
-	@Bean
-	@ServiceConnection
-	PostgreSQLContainer<?> postgresContainer() {
-		PostgreSQLContainer<?> postgreSQLContainer =
-						new PostgreSQLContainer<>(DockerImageName.parse("postgres:18"))
-										.withDatabaseName("soup")
-										.withUsername("soup")
-										.withPassword("soup");
+  @SuppressWarnings("resource")
+  @Bean
+  @ServiceConnection
+  PostgreSQLContainer<?> postgresContainer() {
+    PostgreSQLContainer<?> postgreSQLContainer =
+        new PostgreSQLContainer<>(DockerImageName.parse("postgres:18"))
+            .withDatabaseName("soup")
+            .withUsername("soup")
+            .withPassword("soup");
 
-		if (resourceName != null) {
-			postgreSQLContainer.withCopyFileToContainer(
-							MountableFile.forClasspathResource(resourceName),
-							"/docker-entrypoint-initdb.d/init.sql"
-			);
-		}
+    if (resourceName != null) {
+      postgreSQLContainer.withCopyFileToContainer(
+          MountableFile.forClasspathResource(resourceName),
+          "/docker-entrypoint-initdb.d/init.sql"
+      );
+    }
 
-		return postgreSQLContainer;
-	}
+    return postgreSQLContainer;
+  }
 }

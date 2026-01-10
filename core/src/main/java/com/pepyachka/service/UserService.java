@@ -1,17 +1,16 @@
 package com.pepyachka.service;
 
-import java.util.UUID;
-
 import com.pepyachka.data.UserRegistrationData;
 import com.pepyachka.model.User;
+import java.util.UUID;
 
-public interface UserService
-{
-	User save(UserRegistrationData userRegistrationData);
+public interface UserService {
 
-	User getUserById(UUID userId);
+  User save(UserRegistrationData userRegistrationData);
 
-	User getUserByEmail(String email);
+  User getUserById(UUID userId);
 
-	boolean existsByEmail(String email);
+  User getUserByEmail(String email);
+
+  boolean existsByEmail(String email);
 }

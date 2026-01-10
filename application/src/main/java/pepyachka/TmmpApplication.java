@@ -6,11 +6,11 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(
-				basePackages = "com.pepyachka"
+    basePackages = "com.pepyachka"
 )
-public class TmmpApplication
-{
-	public static void main(String[] args) {
-		SpringApplication.run(TmmpApplication.class, args);
-	}
+public class TmmpApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(TmmpApplication.class, args);
+  }
 }
