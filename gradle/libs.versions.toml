@@ -13,7 +13,7 @@ liquibase-groovy = "3.0.3"
 test-containers-junit = "1.21.3"
 test-containers-postgresql = "1.21.3"
 test-containers-core = "2.0.2"
-junit-jupiter = "5.11.4"
+junit-jupiter = "6.0.2"
 assertj = "3.26.3"
 junitAssert = '4.1.1'
 
