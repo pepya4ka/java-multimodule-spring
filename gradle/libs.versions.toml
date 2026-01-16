@@ -1,20 +1,20 @@
 [versions]
-spring-boot = "3.5.6"
+spring-boot = "3.5.9"
 spring-dependency-management = "1.1.7"
 mapstruct = "1.6.3"
 lombok = "1.18.42"
-postgresql = "42.7.8"
+postgresql = "42.7.9"
 liquibase = "4.27.0"
-jooq = "3.19.27"
+jooq = "3.20.10"
 slf4j = "2.0.17"
 picocli = "4.7.7"
 liquibase-groovy = "3.0.3"
 # Test dependencies
-test-containers-junit = "1.21.3"
-test-containers-postgresql = "1.21.3"
-test-containers-core = "2.0.2"
+test-containers-junit = "1.21.4"
+test-containers-postgresql = "1.21.4"
+test-containers-core = "2.0.3"
 junit-jupiter = "5.11.4"
-assertj = "3.26.3"
+assertj = "3.27.6"
 junitAssert = '4.1.1'
 
 [libraries]
