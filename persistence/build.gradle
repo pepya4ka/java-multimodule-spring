@@ -30,13 +30,13 @@ dependencies {
     runtimeOnly libs.postgresql
     jooqGenerator libs.postgresql
 
-    implementation libs.lombok
     implementation libs.mapstruct
+    implementation libs.lombok
 
     implementation libs.liquibase.core
 
-    annotationProcessor libs.lombok
     annotationProcessor libs.mapstruct.processor
+    annotationProcessor libs.lombok
 
     liquibaseRuntime libs.liquibase.core
     liquibaseRuntime libs.postgresql

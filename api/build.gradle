@@ -6,10 +6,10 @@ dependencies {
     implementation project(':core')
     implementation project(':persistence')
 
-    implementation libs.lombok
-    implementation libs.mapstruct
     implementation libs.bundles.spring.web
+    implementation libs.mapstruct
+    implementation libs.lombok
 
-    annotationProcessor libs.lombok
     annotationProcessor libs.mapstruct.processor
+    annotationProcessor libs.lombok
 }
