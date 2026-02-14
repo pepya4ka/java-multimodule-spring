@@ -1,4 +1,31 @@
+pluginManagement {
+    def propertiesFile = file("$rootDir/gradle.properties")
+    def properties = new Properties()
+    if (propertiesFile.exists()) {
+        propertiesFile.withInputStream { properties.load(it) }
+    }
+    def globalPropertiesFile = new File(System.getProperty("user.home"), ".gradle/gradle.properties")
+    if (globalPropertiesFile.exists()) {
+        globalPropertiesFile.withInputStream { properties.load(it) }
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        gradlePluginPortal()
+
+        maven {
+            url = uri("https://maven.pkg.github.com/eye-dee-soup/jooq-gradle-plugin")
+            credentials(HttpHeaderCredentials) {
+                name = "Authorization"
+                value = "Bearer ${properties.get("github.token", System.getenv("ARTIFACTORY_TOKEN"))}"
+            }
+            authentication { header(HttpHeaderAuthentication) }
+        }
+    }
+}
 rootProject.name = 'test-java-multimodule-project'
+
 include 'core'
 include 'db-schema'
 include 'persistence'

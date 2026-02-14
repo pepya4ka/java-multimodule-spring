@@ -20,9 +20,9 @@ public class PostgresContainerConfiguration {
   PostgreSQLContainer<?> postgresContainer() {
     PostgreSQLContainer<?> postgreSQLContainer =
         new PostgreSQLContainer<>(DockerImageName.parse("postgres:18"))
-            .withDatabaseName("soup")
-            .withUsername("soup")
-            .withPassword("soup");
+            .withDatabaseName("tmmp")
+            .withUsername("tmmp")
+            .withPassword("tmmp");
 
     if (resourceName != null) {
       postgreSQLContainer.withCopyFileToContainer(

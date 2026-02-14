@@ -7,8 +7,8 @@ dependencies {
     implementation project(':persistence')
 
     implementation libs.bundles.spring.web
-    implementation libs.mapstruct
     implementation libs.lombok
+    implementation libs.mapstruct
 
     annotationProcessor libs.lombok
     annotationProcessor libs.mapstruct.processor

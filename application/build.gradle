@@ -9,8 +9,11 @@ dependencies {
 
     implementation libs.bundles.spring.web
     implementation libs.spring.boot.starter.actuator
+    implementation libs.bundles.spring.data.jdbc
     implementation libs.spring.boot.starter.aop
 
     runtimeOnly libs.postgresql
     implementation libs.liquibase.core
+
+    implementation libs.springdoc.openapi
 }
