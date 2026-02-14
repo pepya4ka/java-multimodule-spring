@@ -8,10 +8,15 @@ application**.
 The project demonstrates usage of the following technologies:
 
 - Java
-- Spring Framework
+- Spring Framework 4.x
 - Gradle (multi-module setup)
 - jOOQ for type-safe SQL and database access
 - Liquibase for database migrations
+- custom jooq generate plugin for jOOQ code generation
+
+> ⚠ note: the jooq code generation uses a **custom plugin** (`com.soup.plugins.jooq-generate`)  
+> which is **not publicly available**. to build this project successfully, you will need access  
+> to this plugin or replace it with your own jOOQ code generation setup.
 
 ## Purpose
 
