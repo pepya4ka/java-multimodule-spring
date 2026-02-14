@@ -1,13 +1,25 @@
 buildscript {
     repositories {
         mavenCentral()
+        maven {
+            name = "Artifactory"
+            url = uri("https://maven.pkg.github.com/eye-dee-soup/jooq-gradle-plugin")
+            credentials(HttpHeaderCredentials) {
+                name = "Authorization"
+                value = "Bearer ${project.findProperty("github.token") ?: System.getenv("ARTIFACTORY_TOKEN")}"
+            }
+            authentication { header(HttpHeaderAuthentication) }
+        }
     }
 }
 
 plugins {
-    id 'org.springframework.boot' version '3.5.9' apply false
+    id 'org.springframework.boot' version '4.0.2' apply false
     id 'io.spring.dependency-management' version '1.1.7' apply false
     id 'java'
+    id 'jacoco'
+    id 'org.sonarqube' version '7.2.2.6593'
+    id 'com.soup.plugins.jooq-generate' version '1.0.9' apply false
 }
 
 allprojects {
@@ -19,6 +31,7 @@ allprojects {
     }
 
     apply plugin: 'java'
+    apply plugin: 'jacoco'
 
     java {
         sourceCompatibility = JavaVersion.VERSION_21
@@ -45,12 +58,14 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     apply plugin: 'org.springframework.boot'
 
-    group = 'com.pepyachka'
-    version = '1.0-SNAPSHOT'
-
     dependencies {
         testImplementation libs.spring.boot.starter.test
+        testImplementation libs.spring.boot.testcontainers
         testImplementation libs.spring.boot.starter.json
         testImplementation libs.json.unit.assert
+    }
+
+    bootJar {
+        enabled = false
     }
 }

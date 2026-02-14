@@ -8,8 +8,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(
     componentModel = "spring",
-    unmappedTargetPolicy = org.mapstruct.ReportingPolicy.ERROR,
-    implementationName = "ApiUserMapperImpl"
+    unmappedTargetPolicy = org.mapstruct.ReportingPolicy.ERROR
 )
 public interface UserMapper {
 

@@ -1,19 +1,6 @@
 plugins {
     id 'java'
-    id 'nu.studer.jooq' version "10.2"
-    id 'org.liquibase.gradle' version '2.2.1'
-}
-
-liquibase {
-    activities {
-        main {
-            changelogFile '/db-schema/src/main/resources/liquibase/tmmp/changelog/tmmp-changelog.xml'
-            url 'jdbc:postgresql://localhost:5432/tmmp'
-            username 'postgres'
-            password 'password'
-            driver 'org.postgresql.Driver'
-        }
-    }
+    id 'com.soup.plugins.jooq-generate'
 }
 
 dependencies {
@@ -21,81 +8,33 @@ dependencies {
     implementation project(':db-schema')
 
     implementation libs.spring.boot.starter.jooq
+    implementation libs.spring.boot.starter.liquibase
     implementation libs.spring.boot.starter.jdbc
 
-    implementation libs.jooq.core
-    jooqGenerator libs.jooq.meta
-    jooqGenerator libs.jooq.codegen
-
     runtimeOnly libs.postgresql
-    jooqGenerator libs.postgresql
 
     implementation libs.mapstruct
     implementation libs.lombok
 
-    implementation libs.liquibase.core
-
     annotationProcessor libs.mapstruct.processor
     annotationProcessor libs.lombok
 
-    liquibaseRuntime libs.liquibase.core
-    liquibaseRuntime libs.postgresql
-    liquibaseRuntime libs.picocli
-    liquibaseRuntime libs.liquibase.groovy.dsl
-
-    // Test dependencies
-    testImplementation libs.bundles.testing
-    testRuntimeOnly libs.postgresql
+    testImplementation libs.spring.boot.starter.test
+    testImplementation libs.spring.boot.starter.jooq.test
+    testImplementation libs.testcontainers.postgresql
 }
 
-jooq {
-    version = libs.versions.jooq.get()
-    edition = nu.studer.gradle.jooq.JooqEdition.OSS
+jooqGenerate {
+    targetPackage = "com.pepyachka.persistence.jooq"
+    targetDirectory = file("build/generated/jooq")
+    postgresImage = "public.ecr.aws/j7v0l1m6/postgres:17"
+    generatorConfig = file("${rootProject.projectDir}/persistence/jooq/jooq-config.xml")
+    changeLogFile = "src/main/resources/liquibase/tmmp/changelog/tmmp-changelog.xml"
+    searchPath = files("${rootProject.projectDir}/db-schema")
+}
 
-    configurations {
-        main {
-            generateSchemaSourceOnCompilation = false
-
-            generationTool {
-                jdbc {
-                    driver = 'org.postgresql.Driver'
-                    url = 'jdbc:postgresql://localhost:5432/tmmp'
-                    user = 'postgres'
-                    password = 'password'
-                }
-
-                generator {
-                    name = 'org.jooq.codegen.JavaGenerator'
-                    strategy {
-                        name = 'org.jooq.codegen.DefaultGeneratorStrategy'
-                    }
-                    database {
-                        name = 'org.jooq.meta.postgres.PostgresDatabase'
-                        inputSchema = 'public'
-                        includes = '.*'
-                        excludes = 'databasechangelog|databasechangeloglock'
-                        properties {
-                            property {
-                                key = 'defaultNameCase'
-                                value = 'as_is'
-                            }
-                        }
-                    }
-                    generate {
-                        deprecated = false
-                        records = true
-                        immutablePojos = true
-                        fluentSetters = true
-                        javaTimeTypes = true
-                    }
-                    target {
-                        packageName = 'com.pepyachka.persistence.jooq'
-                        directory = 'build/generated/jooq'
-                    }
-                }
-            }
-        }
-    }
+tasks.named('compileJava') {
+    dependsOn tasks.named('jooqGenerate')
 }
 
 sourceSets {
@@ -104,8 +43,4 @@ sourceSets {
             srcDirs += "$buildDir/generated/jooq"
         }
     }
-}
-
-test {
-    useJUnitPlatform()
 }
