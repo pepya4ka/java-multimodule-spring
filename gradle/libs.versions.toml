@@ -1,7 +1,7 @@
 [versions]
 mapstruct = "1.6.3"
 lombok = "1.18.42"
-postgresql = "42.7.9"
+postgresql = "42.7.10"
 liquibase = "5.0.1"
 springdoc = "3.0.1"
 test-containers-postgresql = "1.21.4"
