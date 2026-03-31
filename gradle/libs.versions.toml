@@ -7,6 +7,8 @@ springdoc = "3.0.1"
 test-containers-postgresql = "1.21.4"
 slf4j = "2.0.17"
 junitAssert = '5.1.0'
+spring-kafka = "4.0.2"
+protobuf = "4.33.5"
 
 [libraries]
 # spring
@@ -22,12 +24,20 @@ spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" 
 spring-boot-starter-json = { module = "org.springframework.boot:spring-boot-starter-json" }
 spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
 spring-boot-testcontainers = { module = "org.springframework.boot:spring-boot-testcontainers" }
-
-# security
+spring-boot-autoconfigure = { module = "org.springframework.boot:spring-boot-autoconfigure" }
+spring-context = { module = "org.springframework:spring-context" }
 
 # database
 postgresql = { module = "org.postgresql:postgresql", version.ref = "postgresql" }
 liquibase-core = { module = "org.liquibase:liquibase-core", version.ref = "liquibase" }
+
+# kafka
+spring-kafka = { module = "org.springframework.kafka:spring-kafka", version.ref = "spring-kafka" }
+spring-boot-starter-kafka = { module = "org.springframework.boot:spring-boot-starter-kafka" }
+spring-kafka-test = { module = "org.springframework.kafka:spring-kafka-test", version.ref = "spring-kafka" }
+
+# protobuf
+protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protobuf" }
 
 # documentation
 springdoc-openapi = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc" }

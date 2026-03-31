@@ -6,6 +6,7 @@ dependencies {
     implementation project(':core')
     implementation project(':api')
     implementation project(':persistence')
+    implementation project(':kafka')
 
     implementation libs.bundles.spring.web
     implementation libs.spring.boot.starter.actuator
